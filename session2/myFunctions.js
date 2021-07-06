@@ -1,4 +1,4 @@
-tasks = null;
+let tasks = null;
 myAddForm = document.querySelector("#form-div form");
 let showHide = document.querySelector("#showHide");
 form_div = document.querySelector("#form-div");
@@ -51,7 +51,7 @@ editBtn = (element, e,i) => {
   dueDt.setAttribute("value", element.dueDate);
   document.getElementById("showHide").click();
   document.querySelector(".submit button").setAttribute("type","button")
-  document.querySelector(".submit button").setAttribute("onclick",`editLocalStorage(${i})`)
+  document.querySelector(".submit button").setAttribute("onclick",`editLocalStorage(${i,e})`)
   document.querySelector(".submit button").textContent="Edit Task"
   window.scrollTo(0, 0);
 };
@@ -63,6 +63,7 @@ tasks[i].taskType=tskType.value
 tasks[i].taskContent=tskCntnt.value
 tasks[i].startDate=strtDt.value
 tasks[i].dueDate=dueDt.value
+saveAllTasks(tasks);
 console.log(tasks[i])
 }
 //////////////////////////////////////////////////
