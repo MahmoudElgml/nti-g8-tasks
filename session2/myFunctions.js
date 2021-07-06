@@ -51,7 +51,7 @@ editBtn = (element, e,i) => {
   dueDt.setAttribute("value", element.dueDate);
   document.getElementById("showHide").click();
   document.querySelector(".submit button").setAttribute("type","button")
-  document.querySelector(".submit button").setAttribute("onclick",`editLocalStorage(${i,e})`)
+  document.querySelector(".submit button").setAttribute("onclick",`editLocalStorage(${i})`)
   document.querySelector(".submit button").textContent="Edit Task"
   window.scrollTo(0, 0);
 };
