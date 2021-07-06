@@ -36,25 +36,36 @@ changeStatus = (index) => {
   saveAllTasks(tasks);
 };
 
+let tskTitle=document.querySelector(".taskTitle")
+let tskType=document.querySelector(".taskType")
+let tskCntnt=document.querySelector(".taskContent")
+let strtDt=document.querySelector(".startDate")
+let dueDt=document.querySelector(".dueDate") 
+
+
 editBtn = (element, e,i) => {
-  document.querySelector(".taskTitle").setAttribute("value", element.taskTitle);
-  document.querySelector(".taskType").setAttribute("value", element.taskType);
-  document.querySelector(".taskContent").textContent = element.taskContent;
-  document.querySelector(".startDate").setAttribute("value", element.startDate);
-  document.querySelector(".dueDate").setAttribute("value", element.dueDate);
+  tskTitle.setAttribute("value", element.taskTitle);
+  tskType.setAttribute("value", element.taskType);
+  tskCntnt.textContent = element.taskContent;
+  strtDt.setAttribute("value", element.startDate);
+  dueDt.setAttribute("value", element.dueDate);
   document.getElementById("showHide").click();
-  document.querySelector(".submit button").setAttribute("type","bb")
+  document.querySelector(".submit button").setAttribute("type","button")
   document.querySelector(".submit button").setAttribute("onclick",`editLocalStorage(${i})`)
   document.querySelector(".submit button").textContent="Edit Task"
   window.scrollTo(0, 0);
-  
-
 };
+///////////////////////////////////////////////////
 editLocalStorage=(i)=>{
-
-console.log("from edit")
+console.log(tasks[i])
+tasks[i].taskTitle=tskTitle.value
+tasks[i].taskType=tskType.value
+tasks[i].taskContent=tskCntnt.value
+tasks[i].startDate=strtDt.value
+tasks[i].dueDate=dueDt.value
 console.log(tasks[i])
 }
+//////////////////////////////////////////////////
 showSingleTask = (element, i) => {
   const mainDiv = createCustomElements(p, "div", "col-4 p-3 y", "", []);
   const mainDiv2 = createCustomElements(mainDiv, "div", "border border-3 border-primary m-3 p-3 x", "", []);
