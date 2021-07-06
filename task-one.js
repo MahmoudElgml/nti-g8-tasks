@@ -1,1 +1,1 @@
-console.log("hello from embeded repo")
+console.log("hello from embeded repo second commit")
